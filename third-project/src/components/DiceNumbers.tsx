@@ -5,9 +5,9 @@ export default function DiceNumbers({
   setSelectedNumber,
   selectedNumber,
 }: {
-  selectedNumber: Number | undefined;
-  numbers: Number[];
-  setSelectedNumber: React.Dispatch<React.SetStateAction<Number | undefined>>;
+  selectedNumber: number | undefined;
+  numbers: number[];
+  setSelectedNumber: React.Dispatch<React.SetStateAction<number | undefined>>;
 }) {
   return (
     <div className="flex flex-row space-x-4">
