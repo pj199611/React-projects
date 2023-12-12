@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import logo from "/logo.svg";
+import Search from "./components/Search";
+import Button from "./components/Button";
+import { useEffect } from "react";
+import axios from "axios";
 
-function App() {
-  const [count, setCount] = useState(0)
+const buttonsText = ["All", "Breakfast", "Lunch", "Dinner"];
+export default function App() {
+  function buttonsClickHandler(text: string) {
+    console.log(text);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    // adding mobile related css classes
+    <div className="h-screen w-screen bg-[#323334] flex flex-col items-center overflow-x-hidden">
+      <img src={logo} alt="logo" className="w-[15em] mt-5 flex mx-auto" />
+      <Search />
 
-export default App
+      <div className="flex flex-row max-w-lg mx-auto space-x-3 mt-10">
+        {buttonsText.map((d) => {
+          return (
+            <Button
+              buttonsClickHandler={buttonsClickHandler}
+              key={d}
+              text={d}
+            ></Button>
+          );
+        })}
+      </div>
+      <div className="bg-[url('../bg.png')] bg-no-repeat bg-cover mt-10 h-screen w-screen flex flex-col px-2 ">
+
+
+
+      </div>
+    </div>
+  );
+}
