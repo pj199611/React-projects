@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
   console.log(path.join(__dirname, "../public"));
   const foodData = [
     {
-      name: "Boilded Egg",
+      name: "Boiled Egg",
       price: 10,
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
       image: "/images/egg.png",
