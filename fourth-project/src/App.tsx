@@ -16,7 +16,7 @@ interface IData {
 }
 
 export default function App() {
-  const [filterText, setFilterText] = useState("");
+  const [filterText, setFilterText] = useState<string | undefined>("");
   const [cardsData, setCardsData] = useState<IData[]>([]);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function App() {
   return (
     <div className="h-screen w-screen bg-[#323334] flex flex-col items-center overflow-x-hidden">
       <img src={logo} alt="logo" className="w-[15em] mt-5 flex mx-auto" />
-      <Search setFoodText={(text) => setFilterText(text)} />
+      <Search setFoodText={(text) => setFilterText(text)} filterText={filterText} />
 
       <div className="flex flex-row max-w-lg mx-auto space-x-3 mt-10">
         {buttonsText.map((d) => (
