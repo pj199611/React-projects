@@ -1,4 +1,4 @@
-import express from "express";
+import express,{Request,Response} from "express";
 import path from "path";
 import cors from "cors";
 const app = express();
@@ -9,7 +9,7 @@ app.use(cors());
 
 app.use("/images", express.static(path.join(__dirname, "../public/images")));
 
-app.get("/", (req, res) => {
+app.get("/", (req:Request, res:Response) => {
   console.log(path.join(__dirname, "../public"));
   const foodData = [
     {
