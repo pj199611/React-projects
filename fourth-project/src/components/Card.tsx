@@ -7,7 +7,7 @@ interface IData {
 }
 export default function Card({ data }: { data: IData }) {
   return (
-    <div className="text-white bg-black bg-opacity-50 rounded-2xl flex space-x-2">
+    <div className="hover:scale-110 md:duration-1000 md:max-h-auto text-white bg-black bg-opacity-50 rounded-2xl flex space-x-2">
       <div className="w-4/5">
         <img src={`http://localhost:9000${data.image}`} />
       </div>

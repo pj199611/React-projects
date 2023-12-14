@@ -31,7 +31,7 @@ export default function App() {
   }, []);
 
   const filteredCards = cardsData.filter((data) => {
-    if (!filterText) return true; // Show all if filterText is empty or "All"
+    if (!filterText) return true;
     const lowerCaseFilter = filterText.toLowerCase();
     return (
       data.name.toLowerCase().includes(lowerCaseFilter) ||
@@ -41,8 +41,13 @@ export default function App() {
 
   return (
     <div className="h-screen w-screen bg-[#323334] flex flex-col items-center overflow-x-hidden">
-      <img src={logo} alt="logo" className="w-[15em] mt-5 flex mx-auto" />
-      <Search setFoodText={(text) => setFilterText(text)} filterText={filterText} />
+      <div className="flex flex-col md:flex-row justify-between items-center w-full px-4 md:px-[20em] md:py-[1em]">
+        <img src={logo} alt="logo" className="w-[15em] mt-5 md:mt-0" />
+        <Search
+          setFoodText={(text) => setFilterText(text)}
+          filterText={filterText}
+        />
+      </div>
 
       <div className="flex flex-row max-w-lg mx-auto space-x-3 mt-10">
         {buttonsText.map((d) => (
@@ -50,8 +55,8 @@ export default function App() {
         ))}
       </div>
 
-      <div className="bg-[url('../bg.png')] bg-no-repeat bg-cover mt-10 h-screen w-screen overflow-scroll">
-        <div className="space-y-4 flex flex-col px-6 py-6">
+      <div className="bg-[url('../bg.png')]  bg-no-repeat bg-cover md:mt-5 mt-10 h-screen w-screen md:overflow-hidden overflow-scroll">
+        <div className="md:grid md:grid-cols-3 md:cursor-pointer md:gap-8 md:px-[25em] flex flex-wrap items-stretch space-y-4 md:space-y-0 px-6 py-6">
           {filteredCards.map((data, id) => (
             <Card key={`${data.name}-${id}`} data={data} />
           ))}
